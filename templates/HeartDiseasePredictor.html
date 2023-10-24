@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DiabetesPredictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{url_for('home')}}">
+                <img src="https://flowbite.com/docs/images/logo.svg" alt="Logo" width="30" height="24"
+                    class="d-inline-block align-text-top">
+                <b>WellNest.ai</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Go Back to Home</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <h1 class="my-3 text-center">Heart Disease Prediction Model</h1>
+    <form action="{{ url_for('pred_heart')}}" method="post">
+        <div class="container">
+            <h5>Gender</h5>
+            <select class="form-select" aria-label="Default select example" , name="genderValue">
+                <option selected>Select Gender</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+            <div class="input-container my-3">
+                <h5>Age</h5>
+                <input class="form-control" type="number" placeholder="Enter your Age (Years)"
+                    aria-label="default input example" name="ageValue">
+            </div>
+            <div class="input-container my-3">
+                <h5>Chest Pain</h5>
+                <input class="form-control" type="text" placeholder="Enter Chest Pain Type (0-3)"
+                    aria-label="default input example" name="cpValue">
+            </div>
+            <div class="input-container my-3">
+                <h5>Resting Blood Pressure </h5>
+                <input class="form-control" type="text" placeholder="Enter Resting Blood Pressure (mm/Hg)"
+                    aria-label="default input example" name="trestbpsValue">
+            </div>
+            <div class="input-container my-3">
+                <h5>Cholestrol</h5>
+                <input class="form-control" type="text" placeholder="Enter Cholestrol Level (mg/dL)"
+                    aria-label="default input example" name="cholestrolValue">
+            </div>
+            <h5>Fasting Blood Sugar</h5>
+            <select class="form-select" aria-label="Default select example" , name="fbsValue">
+                <option selected>Select from below</option>
+                <option value="1">Greater than 120 mg/dL</option>
+                <option value="0">Less Than 120 mg/dL</option>
+            </select>
+            <div class="input-container my-3">
+                <h5>Resting ECG</h5>
+                <select class="form-select" aria-label="Default select example" , name="restecgValue">
+                    <option selected>Select from below</option>
+                    <option value="0">Normal</option>
+                    <option value="1">ST Wave Abnormalities</option>
+                    <option value="2">Left Ventricular Hypertrophy</option>
+                </select>
+            </div>
+            <div class="input-container my-3">
+                <h5>Maximum Heart Rate</h5>
+                <input class="form-control" type="text" placeholder="Enter value (in bpm)"
+                    aria-label="default input example" name="thalachValue">
+            </div>
+            <h5>Exercise Induced Angina</h5>
+            <select class="form-select" aria-label="Default select example" , name="exangValue">
+                <option selected>Select from below</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <div class="input-container my-3">
+                <h5>Old Peak</h5>
+                <input class="form-control" type="text" placeholder="Enter ST Depression" aria-label="default input example"
+                    name="oldpeakValue">
+            </div>
+            <h5>Slope</h5>
+            <select class="form-select" aria-label="Default select example" , name="slopeValue">
+                <option selected>Select Category</option>
+                <option value="0">Up-Sloping</option>
+                <option value="1">Flat</option>
+                <option value="2">Down-Sloping</option>
+            </select>
+            <div class="input-container my-3">
+                <h5>CA : Major Vessels</h5>
+                <input class="form-control" type="text" placeholder="Enter number of Major Vessels (0-3)" aria-label="default input example"
+                    name="caValue">
+            </div>
+            <h5>Thalassemia</h5>
+            <select class="form-select" aria-label="Default select example" , name="thalValue">
+                <option selected>Select Type</option>
+                <option value="1">Mild</option>
+                <option value="2">Moderate</option>
+                <option value="3">Severe</option>
+            </select>
+            <button type="submit" class="container-fluid btn btn-dark my-3">Predict Heart Disease</button>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
