@@ -1,5 +1,5 @@
 # WellNest.AI
-All rounder Ml based Web App for Disease Prediction
+All rounder ML based Web App for Disease Prediction
 ## HomePage
 ![Screenshot (21)](https://github.com/abhiiiman/WellNest.AI/assets/111262410/fc4c7cc7-8bca-4beb-8b5e-871846773929)
 ## Heart Disease Prediction Page
